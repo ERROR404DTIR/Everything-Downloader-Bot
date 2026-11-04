@@ -1,0 +1,17 @@
+{
+  "token": "PUT_YOUR_BOT_TOKEN_HERE",
+  "base_url": "https://tapi.bale.ai",
+  "download_dir": "downloads",
+  "max_file_size_mb": 50,
+  "max_concurrent_downloads": 3,
+  "allow_playlists": false,
+  "max_playlist_items": 10,
+  "cookies_file": null,
+  "ffmpeg_location": null,
+  "proxy": null,
+  "request_timeout": 600,
+  "log_level": "INFO",
+  "keep_downloaded_files": false,
+  "job_ttl_seconds": 1800,
+  "ytdlp_options": {}
+}

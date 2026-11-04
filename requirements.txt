@@ -1,0 +1,4 @@
+balethon==1.1.0
+yt-dlp>=2024.8.6
+aiohttp>=3.9,<4
+requests>=2.31,<3
