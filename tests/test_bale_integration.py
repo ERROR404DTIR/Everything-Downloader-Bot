@@ -223,6 +223,27 @@ class TestBaleIntegration:
         assert body[:40] in uploaded
         assert b'report.pdf' in uploaded or b"report" in uploaded
 
+    def test_event_loop_initialization_on_import(self):
+        """Simulate Python 3.14 behavior where there is no current event loop set."""
+        from bot import ensure_event_loop
+
+        policy = asyncio.get_event_loop_policy()
+        old_loop = None
+        try:
+            try:
+                old_loop = policy.get_event_loop()
+            except RuntimeError:
+                pass
+            policy.set_event_loop(None)
+
+            # Verifying ensure_event_loop creates and attaches a loop without error
+            loop = ensure_event_loop()
+            assert loop is not None
+            assert loop.is_closed() is False
+            assert asyncio.get_event_loop() is loop
+        finally:
+            policy.set_event_loop(old_loop)
+
 
 def _config_for(api: FakeBaleAPI):
     from bot.config import Config

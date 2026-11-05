@@ -4,6 +4,10 @@
 The real logic lives in the :mod:`bot` package.
 """
 
+from bot import ensure_event_loop
+
+ensure_event_loop()
+
 from bot.main import main
 
 if __name__ == "__main__":
