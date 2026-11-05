@@ -6,6 +6,10 @@ import argparse
 import sys
 from typing import Optional
 
+from . import ensure_event_loop
+
+ensure_event_loop()
+
 from balethon import Client
 
 from . import __version__
