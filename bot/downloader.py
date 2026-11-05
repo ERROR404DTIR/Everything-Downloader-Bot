@@ -39,7 +39,7 @@ from .utils import guess_extension, human_size, pretty_host, safe_filename
 
 log = get_logger(__name__)
 
-ProgressCallback = Callable[[DownloadProgress], Awaitable[None] | None]
+ProgressCallback = Callable[[DownloadProgress], Optional[Awaitable[None]]]
 
 #: Extensions we happily download without asking yt-dlp first.
 DIRECT_EXTENSIONS = {
